@@ -1,6 +1,6 @@
 # Flower Detection
 Drone for flower detection using U-Net Deep Learning\
-Pilot study: Can we use drone technology for quantifying and monitoring flower resources in field margins?\
+Pilot study: Can we use drone technology for quantifying and monitoring flower resources in field margins?
 ## Requirements:
 Keras==2.1.6\
 Keras-Applications==1.0.6\
@@ -10,4 +10,4 @@ tensorboardX==1.6\
 tensorflow-gpu==1.11.0\
 numpy==1.15.4\
 scikit-image==0.15.0\
-opencv-python==4.0.1\
+opencv-python==4.0.1
