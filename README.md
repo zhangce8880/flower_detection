@@ -8,6 +8,5 @@ tensorboard==1.11.0
 tensorboardX==1.6
 tensorflow-gpu==1.11.0
 numpy==1.15.4
-scipy==1.1.0
 scikit-image==0.15.0
 opencv-python==4.0.1
