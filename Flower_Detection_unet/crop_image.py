@@ -13,9 +13,9 @@ import numpy as np
 import skimage.io as io
 import skimage.transform as trans
 
-fileDir = "data/membrane/flower/test/sub_test/"  #test images(1024*1024)
-#fileDir = "data/membrane/train/f"
-preDir = "data/membrane/flower/test/masks_crops/" #Dir of predict mask
+fileDir = "data/flower/test/sub_test/"  #test images(1024*1024)
+#fileDir = "data/flower/train/f"
+preDir = "data/flower/test/masks_crops/" #Dir of predict mask
 
 #os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 def crop_image(src, save_path):

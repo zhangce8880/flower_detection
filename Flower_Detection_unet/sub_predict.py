@@ -24,10 +24,10 @@ preDir = "data/flower/test/sub_test/predict/" #Dir of predict mask
 def predict_z(src, predict_path):
     TEST_SET = os.listdir(src)
     #model = fcn_vgg16_8s()
-    model = fcn_2s()
+    model = unet()
     #model = res_unet1()
     print('Loading Model weights...')
-    model.load_weights('fcn1.hdf5')
+    model.load_weights('unet.hdf5')
     print('completed!')
     img_h = 256
     img_w = 256

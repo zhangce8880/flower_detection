@@ -446,7 +446,7 @@ def decoder(x, from_encoder):
     return main_path
 
 
-def res_unet1(input_shape = (256,256,3)):#含有三个下采样残差单元的ResUnet
+def res_unet1(input_shape = (256,256,3)):#ResUnet with three residual block
     inputs = Input(shape=input_shape)
 
     to_decoder = encoder(inputs)
@@ -508,7 +508,7 @@ def d_decoder(x, from_encoder):
 
     return main_path
 
-def d_res_unet1(input_shape = (256,256,3)):#含有四个下采样残差单元的ResUnet
+def d_res_unet1(input_shape = (256,256,3)):#ResUnet with four residual block
     inputs = Input(shape=input_shape)
 
     to_decoder = d_encoder(inputs)

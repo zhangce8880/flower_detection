@@ -28,12 +28,12 @@ data_gen_args = dict(rotation_range = 90.,
                     #vertical_flip = True
 					)
 
-train_Gene = trainGenerator(8,'data/membrane/flower/train','image_crops','mask_crops',data_gen_args,save_to_dir = None)
-val_Gene = trainGenerator(8,'data/membrane/flower/test','images_crops','masks_crops',data_gen_args)
+train_Gene = trainGenerator(8,'data/flower/train','image_crops','mask_crops',data_gen_args,save_to_dir = None)
+val_Gene = trainGenerator(8,'data/flower/test','images_crops','masks_crops',data_gen_args)
 
 reduce_lr = ReduceLROnPlateau(monitor = 'val_loss', factor=0.2, patience=3, verbose=0, mode='min', epsilon=1e-4, 
                               cooldown=0, min_lr=1e-6)
-visual = TensorBoard(log_dir='./res_unet1_log', histogram_freq=0, write_graph=True, write_images=True)
+visual = TensorBoard(log_dir='./unet_log', histogram_freq=0, write_graph=True, write_images=True)
 earlystop = EarlyStopping(monitor='val_loss', patience=7, verbose=0, mode='min')
 model = unet()
 #model = segnet_vgg16()
@@ -46,7 +46,7 @@ model = unet()
 #model = res_unet1()
 #model.load_weights('res_unet.hdf5')
 
-model_checkpoint = ModelCheckpoint('fcn1.hdf5', monitor='val_loss',verbose=1, save_best_only=True)
+model_checkpoint = ModelCheckpoint('unet.hdf5', monitor='val_loss',verbose=1, save_best_only=True)
 model.fit_generator(train_Gene,steps_per_epoch=500,epochs=30,
                     callbacks=[model_checkpoint, visual, reduce_lr, earlystop], 
                     validation_data=val_Gene, validation_steps=20)#step_per_epoch and validation_steps equals to number of samples divide batchsize
@@ -66,7 +66,7 @@ for name in test_samples:
     mask[mask <= 0.5] = 0
     mask = mask * 255
     print (mask.shape)
-    cv2.imwrite("data/membrane/train/predict/%d.png"%i, mask[0,:,:,:])
+    cv2.imwrite("data/flower/train/predict/%d.png"%i, mask[0,:,:,:])
     i = i+1
 
 
@@ -81,6 +81,6 @@ for i,item in enumerate(results):
     item[item < 0.5] = 0
     mask = item * 255
     #print(mask[200:210,200:210,0])
-    cv2.imwrite("data/membrane/test/fcn_finetune/%d.png"%i, mask)
-#saveResult("data/membrane/train/predict", results)
+    cv2.imwrite("data/flower/test/fcn_finetune/%d.png"%i, mask)
+#saveResult("data/flower/train/predict", results)
 '''  

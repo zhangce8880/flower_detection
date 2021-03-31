@@ -40,12 +40,12 @@ def copyFile(fileDir):
  
 if __name__ == '__main__':
     # open /textiles
-    path = "data/membrane/train/images/"
-    path_masks = "data/membrane/train/masks/"
+    path = "data/flower/train/images/"
+    path_masks = "data/flower/train/masks/"
     ls = os.listdir(path)
     print(len(ls))
-    tarDir = "data/membrane/test/images/"
-    tar_masks = "data/membrane/test/masks/"
+    tarDir = "data/flower/test/images/"
+    tar_masks = "data/flower/test/masks/"
     copyFile(path)
 '''
 
@@ -54,15 +54,15 @@ if __name__ == '__main__':
 import os
 import cv2
 
-path = "data/membrane/train/masks/"
+path = "data/flower/train/masks/"
 ls = os.listdir(path)
 #i = 0
 
 for name in ls:
     img = cv2.imread(os.path.join(path, name))
     img1 = img[:, :, 0]
-    #cv2.imwrite("data/membrane/train/mask8/%d.png"%i, img1)
-    cv2.imwrite("data/membrane/train/mask8/%s"%name, img1)
+    #cv2.imwrite("data/flower/train/mask8/%d.png"%i, img1)
+    cv2.imwrite("data/flower/train/mask8/%s"%name, img1)
     #i = i+1
 
 
