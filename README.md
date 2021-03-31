@@ -1,5 +1,4 @@
 # Flower Detection
-Pilot study: Can we use drone technology for quantifying and monitoring flower resources in field margins?\
 Drone for flower detection using U-Net Deep Learning
 
 ## Requirements:
