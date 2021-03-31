@@ -1,4 +1,4 @@
-# flower_detection
+# Flower Detection
 Drone for flower detection using U-Net Deep Learning
 ## Requirements:
 Keras==2.1.6
